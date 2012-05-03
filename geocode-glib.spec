@@ -3,10 +3,10 @@
 %define girname %mklibname %{name}-gir 1.0
 %define develname %mklibname -d %{name}
 
+Summary: A convenience library for the Yahoo! Place Finder APIs
 Name: geocode-glib
 Version: 0.99.0
-Release: 1
-Summary: A convenience library for the Yahoo! Place Finder APIs
+Release: 2
 Group: Networking/Other
 License: LGPLv2
 URL: http://geoclue.freedesktop.org/
@@ -43,7 +43,6 @@ geocoding and reverse geocoding.
 %package -n %{girname}
 Group: Networking/Other
 Summary: A convenience library for the Yahoo! Place Finder APIs
-Requires: %{libname} = %{version}-%{release}
 
 %description -n %{girname}
 This package contains GObjectIntrospection data for geocode-glib.
@@ -52,6 +51,7 @@ This package contains GObjectIntrospection data for geocode-glib.
 Group: Networking/Other
 Summary: A convenience library for the Yahoo! Place Finder APIs
 Requires: %{libname} = %{version}-%{release}
+Requires: %{girname} = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
@@ -67,7 +67,6 @@ This package contains the development files for geocode-glib.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
