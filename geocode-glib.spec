@@ -17,7 +17,7 @@ BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(json-glib-1.0) >= 0.13.1
 BuildRequires: pkgconfig(libsoup-2.4)
 BuildRequires: gobject-introspection-devel >= 0.6.3
-BuildRequires: gnome-doc-utils
+BuildRequires: pkgconfig(gnome-doc-utils)
 
 %description
 geocode-glib is a convenience library for the Yahoo! Place Finder
@@ -82,4 +82,15 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_libdir}/pkgconfig/geocode-glib.pc
 %{_datadir}/gir-1.0/GeocodeGlib-1.0.gir
 %{_datadir}/gtk-doc/html/%{name}
+
+
+
+%changelog
+* Thu May 03 2012 Matthew Dawkins <mattydaw@mandriva.org> 0.99.0-2
++ Revision: 795645
+- rebuild for typelib
+
+* Fri Dec 09 2011 Matthew Dawkins <mattydaw@mandriva.org> 0.99.0-1
++ Revision: 739708
+- imported package geocode-glib
 
