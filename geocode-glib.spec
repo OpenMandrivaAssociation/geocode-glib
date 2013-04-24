@@ -1,23 +1,26 @@
-%define major 0
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
+%define api	1.0
+%define major	0
 %define libname %mklibname %{name} %{major}
-%define girname %mklibname %{name}-gir 1.0
-%define develname %mklibname -d %{name}
+%define girname %mklibname %{name}-gir %{api}
+%define devname %mklibname -d %{name}
 
-Summary: A convenience library for the Yahoo! Place Finder APIs
-Name: geocode-glib
-Version: 0.99.0
-Release: 2
-Group: Networking/Other
-License: LGPLv2
-URL: http://geoclue.freedesktop.org/
-Source0: http://ftp.acc.umu.se/pub/GNOME/sources/%{name}/0.99/%{name}-%{version}.tar.bz2
+Summary:	A convenience library for the Yahoo! Place Finder APIs
+Name:		geocode-glib
+Version:	0.99.0
+Release:	2
+Group:		Networking/Other
+License:	LGPLv2
+Url:		http://geoclue.freedesktop.org/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/geocode-glib/%{url_ver}/%{name}-%{version}.tar.bz2
 
-BuildRequires: intltool
-BuildRequires: pkgconfig(gio-2.0)
-BuildRequires: pkgconfig(json-glib-1.0) >= 0.13.1
-BuildRequires: pkgconfig(libsoup-2.4)
-BuildRequires: gobject-introspection-devel >= 0.6.3
-BuildRequires: pkgconfig(gnome-doc-utils)
+BuildRequires:	intltool
+BuildRequires:	pkgconfig(gio-2.0)
+BuildRequires:	pkgconfig(gnome-doc-utils)
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
+BuildRequires:	pkgconfig(json-glib-1.0) >= 0.13.1
+BuildRequires:	pkgconfig(libsoup-2.4)
 
 %description
 geocode-glib is a convenience library for the Yahoo! Place Finder
@@ -29,8 +32,8 @@ and latitude from an address), and reverse geocoding (finding an address
 from coordinates).
 
 %package -n %{libname}
-Group: Networking/Other
-Summary: A convenience library for the Yahoo! Place Finder APIs
+Group:		Networking/Other
+Summary:	A convenience library for the Yahoo! Place Finder APIs
 
 %description -n %{libname}
 Geocode-glib allows you to do geocoding (going from a place name,
@@ -41,20 +44,20 @@ This library should be used in place of Geoclue's D-Bus API for
 geocoding and reverse geocoding.
 
 %package -n %{girname}
-Group: Networking/Other
-Summary: A convenience library for the Yahoo! Place Finder APIs
+Group:		Networking/Other
+Summary:	A convenience library for the Yahoo! Place Finder APIs
 
 %description -n %{girname}
 This package contains GObjectIntrospection data for geocode-glib.
 
-%package -n %{develname}
-Group: Networking/Other
-Summary: A convenience library for the Yahoo! Place Finder APIs
-Requires: %{libname} = %{version}-%{release}
-Requires: %{girname} = %{version}-%{release}
-Provides: %{name}-devel = %{version}-%{release}
+%package -n %{devname}
+Group:		Networking/Other
+Summary:	A convenience library for the Yahoo! Place Finder APIs
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %{develname}
+%description -n %{devname}
 This package contains the development files for geocode-glib.
 
 %prep
@@ -68,29 +71,17 @@ This package contains the development files for geocode-glib.
 
 %install
 %makeinstall_std
-find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %files -n %{libname}
 %{_libdir}/libgeocode-glib.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/GeocodeGlib-1.0.typelib
+%{_libdir}/girepository-1.0/GeocodeGlib-%{api}.typelib
 
-%files -n %{develname}
+%files -n %{devname}
 %{_includedir}/geocode-glib
 %{_libdir}/libgeocode-glib.so
 %{_libdir}/pkgconfig/geocode-glib.pc
-%{_datadir}/gir-1.0/GeocodeGlib-1.0.gir
+%{_datadir}/gir-1.0/GeocodeGlib-%{api}.gir
 %{_datadir}/gtk-doc/html/%{name}
-
-
-
-%changelog
-* Thu May 03 2012 Matthew Dawkins <mattydaw@mandriva.org> 0.99.0-2
-+ Revision: 795645
-- rebuild for typelib
-
-* Fri Dec 09 2011 Matthew Dawkins <mattydaw@mandriva.org> 0.99.0-1
-+ Revision: 739708
-- imported package geocode-glib
 
