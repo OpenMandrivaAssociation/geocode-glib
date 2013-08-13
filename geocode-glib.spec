@@ -8,12 +8,12 @@
 
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Name:		geocode-glib
-Version:	0.99.0
+Version:	0.99.1
 Release:	2
 Group:		Networking/Other
 License:	LGPLv2
 Url:		http://geoclue.freedesktop.org/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/geocode-glib/%{url_ver}/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/geocode-glib/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gio-2.0)
@@ -72,6 +72,9 @@ This package contains the development files for geocode-glib.
 %install
 %makeinstall_std
 
+%files
+%{_bindir}/geoip-update
+
 %files -n %{libname}
 %{_libdir}/libgeocode-glib.so.%{major}*
 
@@ -79,9 +82,9 @@ This package contains the development files for geocode-glib.
 %{_libdir}/girepository-1.0/GeocodeGlib-%{api}.typelib
 
 %files -n %{devname}
-%{_includedir}/geocode-glib
+%{_includedir}/geocode-glib-%{api}
 %{_libdir}/libgeocode-glib.so
-%{_libdir}/pkgconfig/geocode-glib.pc
+%{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/GeocodeGlib-%{api}.gir
 %{_datadir}/gtk-doc/html/%{name}
 
