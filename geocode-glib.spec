@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0) >= 0.13.1
 BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	pkgconfig(geoip)
 
 %description
 geocode-glib is a convenience library for the Yahoo! Place Finder
