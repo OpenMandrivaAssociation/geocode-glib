@@ -9,7 +9,7 @@
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Name:		geocode-glib
 Version:	0.99.1
-Release:	7
+Release:	8
 Group:		Networking/Other
 License:	LGPLv2
 Url:		http://geoclue.freedesktop.org/
