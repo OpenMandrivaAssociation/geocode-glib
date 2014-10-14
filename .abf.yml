@@ -1,4 +1,5 @@
 removed_sources:
   geocode-glib-0.99.0.tar.bz2: 26a7e389f4a2055ca18325bc900eba1c62b7bbfc
-sources:
   geocode-glib-0.99.1.tar.xz: a7bbdb9d272679ac2600da38340e2a46d1045f0d
+sources:
+  geocode-glib-3.14.0.tar.xz: 56851e1100dd52a6fe487e92a195e156587a4396

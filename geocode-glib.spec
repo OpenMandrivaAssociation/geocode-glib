@@ -8,8 +8,8 @@
 
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Name:		geocode-glib
-Version:	0.99.1
-Release:	8
+Version:	3.14.0
+Release:	1
 Group:		Networking/Other
 License:	LGPLv2
 Url:		http://geoclue.freedesktop.org/
@@ -35,6 +35,7 @@ from coordinates).
 %package -n %{libname}
 Group:		Networking/Other
 Summary:	A convenience library for the Yahoo! Place Finder APIs
+Requires:	%{name} = %{version}-%{release}
 
 %description -n %{libname}
 Geocode-glib allows you to do geocoding (going from a place name,
@@ -65,8 +66,7 @@ This package contains the development files for geocode-glib.
 %setup -q
 
 %build
-%configure2_5x \
-	--disable-static
+%configure
 
 %make
 
@@ -74,7 +74,7 @@ This package contains the development files for geocode-glib.
 %makeinstall_std
 
 %files
-%{_bindir}/geoip-update
+%{_datadir}/icons/gnome/scalable/places/*.svg
 
 %files -n %{libname}
 %{_libdir}/libgeocode-glib.so.%{major}*
@@ -87,5 +87,5 @@ This package contains the development files for geocode-glib.
 %{_libdir}/libgeocode-glib.so
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/GeocodeGlib-%{api}.gir
-%{_datadir}/gtk-doc/html/%{name}
+%{_datadir}/gtk-doc/html/%{name}-%{api}
 
