@@ -6,10 +6,12 @@
 %define girname %mklibname %{name}-gir %{api}
 %define devname %mklibname -d %{name}
 
+%define _disable_rebuild_configure 1
+
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Name:		geocode-glib
-Version:	3.16.0
-Release:	3
+Version:	3.18.0
+Release:	1
 Group:		Networking/Other
 License:	LGPLv2
 Url:		http://geoclue.freedesktop.org/
