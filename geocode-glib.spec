@@ -91,5 +91,5 @@ This package contains the development files for geocode-glib.
 %{_libdir}/libgeocode-glib.so
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/GeocodeGlib-%{api}.gir
-%{_datadir}/gtk-doc/html/%{name}-%{api}
+#{_datadir}/gtk-doc/html/%{name}-%{api}
 
