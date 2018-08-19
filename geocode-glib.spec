@@ -87,9 +87,11 @@ This package contains the development files for geocode-glib.
 %{_libdir}/girepository-1.0/GeocodeGlib-%{api}.typelib
 
 %files -n %{devname}
+%exclude %{_libexecdir}/installed-tests/*
 %{_includedir}/geocode-glib-%{api}
 %{_libdir}/libgeocode-glib.so
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/GeocodeGlib-%{api}.gir
 #{_datadir}/gtk-doc/html/%{name}-%{api}
+%doc %{_datadir}/gtk-doc/html/%{name}/*
 
