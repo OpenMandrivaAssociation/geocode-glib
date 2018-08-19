@@ -10,7 +10,7 @@
 
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Name:		geocode-glib
-Version:	3.18.0
+Version:	3.26.0
 Release:	1
 Group:		Networking/Other
 License:	LGPLv2
@@ -24,6 +24,8 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0) >= 0.13.1
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(geoip)
+BuildRequires:  meson
+BuildRequires:  gtk-doc
 
 %description
 geocode-glib is a convenience library for the Yahoo! Place Finder
@@ -68,12 +70,12 @@ This package contains the development files for geocode-glib.
 %setup -q
 
 %build
-%configure
+%meson \
 
-%make
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
 
 %files
 %{_datadir}/icons/gnome/scalable/places/*.svg
@@ -85,9 +87,11 @@ This package contains the development files for geocode-glib.
 %{_libdir}/girepository-1.0/GeocodeGlib-%{api}.typelib
 
 %files -n %{devname}
+%exclude %{_libexecdir}/installed-tests/*
 %{_includedir}/geocode-glib-%{api}
 %{_libdir}/libgeocode-glib.so
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/GeocodeGlib-%{api}.gir
-%{_datadir}/gtk-doc/html/%{name}-%{api}
+#{_datadir}/gtk-doc/html/%{name}-%{api}
+%doc %{_datadir}/gtk-doc/html/%{name}/*
 
