@@ -78,7 +78,7 @@ This package contains the development files for geocode-glib.
 %meson_install
 
 %files
-%{_datadir}/icons/gnome/scalable/places/*.svg
+#{_datadir}/icons/gnome/scalable/places/*.svg
 
 %files -n %{libname}
 %{_libdir}/libgeocode-glib.so.%{major}*
