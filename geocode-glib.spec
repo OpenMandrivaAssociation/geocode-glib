@@ -80,6 +80,7 @@ This package contains the development files for geocode-glib.
 %files
 %{_iconsdir}/hicolor/scalable/places/
 %{_datadir}/installed-tests/geocode-glib
+%{_libexecdir}/geocode-glib/
 
 %files -n %{libname}
 %{_libdir}/libgeocode-glib.so.%{major}*
