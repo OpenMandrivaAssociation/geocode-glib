@@ -71,11 +71,20 @@ This package contains the development files for geocode-glib.
 %setup -q
 
 %build
-%meson \
+%define _vpath_builddir %{_vendor}-%{_target_os}-build-soup2
+%meson -Dsoup2=true
+%meson_build
 
+cd ..
+	
+%define _vpath_builddir %{_vendor}-%{_target_os}-build-soup3
+%meson -Denable-installed-tests=false -Dsoup2=false
 %meson_build
 
 %install
+%define _vpath_builddir %{_vendor}-%{_target_os}-build-soup2
+%meson_install
+%define _vpath_builddir %{_vendor}-%{_target_os}-build-soup3
 %meson_install
 
 %files
