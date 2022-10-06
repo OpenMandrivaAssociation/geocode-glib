@@ -14,7 +14,7 @@
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Name:		geocode-glib
 Version:	3.26.4
-Release:	3
+Release:	4
 Group:		Networking/Other
 License:	LGPLv2
 Url:		http://geoclue.freedesktop.org/
@@ -44,6 +44,7 @@ from coordinates).
 Group:		Networking/Other
 Summary:	A convenience library for the Yahoo! Place Finder APIs for old libraries
 Requires:	%{name} = %{version}-%{release}
+Obsoletes: %{libname}0 <= %{version}-%{release}
 
 %description -n %{libname}
 Geocode-glib allows you to do geocoding (going from a place name,
