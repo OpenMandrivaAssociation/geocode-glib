@@ -14,11 +14,11 @@
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Name:		geocode-glib
 Version:	3.26.4
-Release:	7
+Release:	8
 Group:		Networking/Other
 License:	LGPLv2
-Url:		http://geoclue.freedesktop.org/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/geocode-glib/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://geoclue.freedesktop.org/
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/geocode-glib/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gio-2.0)
