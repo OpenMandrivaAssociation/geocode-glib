@@ -14,7 +14,7 @@
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Name:		geocode-glib
 Version:	3.26.4
-Release:	8
+Release:	9
 Group:		Networking/Other
 License:	LGPLv2
 Url:		https://geoclue.freedesktop.org/
@@ -101,7 +101,7 @@ This version links to old libraries.
 Group:		Networking/Other
 Summary:	A convenience library for the Yahoo! Place Finder APIs
 Requires:	%{libname2} = %{version}-%{release}
-Requires:	%{girname} = %{version}-%{release}
+Requires:	%{girname2} = %{version}-%{release}
 
 %description -n %{devname2}
 This package contains the development files for geocode-glib.
@@ -111,7 +111,7 @@ This package contains the development files for geocode-glib.
 
 %build
 %define _vpath_builddir %{_vendor}-%{_target_os}-build-soup2
-%meson -Dsoup2=true
+%meson -Denable-installed-tests=false -Dsoup2=true
 %meson_build
 
 %define _vpath_builddir %{_vendor}-%{_target_os}-build-soup3
@@ -127,8 +127,6 @@ This package contains the development files for geocode-glib.
 
 %files
 %{_iconsdir}/hicolor/scalable/places/
-%{_datadir}/installed-tests/geocode-glib
-%{_libexecdir}/geocode-glib/
 
 %files -n %{libname}
 %{_libdir}/libgeocode-glib.so.%{major}*
